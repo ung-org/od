@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
 
 	while ((c = getopt(argc, argv, "A:bcdj:Nost:vx")) != -1) {
 		switch (c) {
-		case 'A':
+		case 'A':	/* address_base */
 			xsi_offset = 0;
 			if (strlen(optarg) != 1) {
 				return 1;
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
 			addoutput("u2");
 			break;
 
-		case 'j':
+		case 'j':	/* skip */
 			xsi_offset = 0;
 			skip = strtoul(optarg, &endopt, 0);
 			switch (*endopt) {
@@ -152,7 +152,7 @@ int main(int argc, char *argv[])
 			}
 			break;
 
-		case 'N':
+		case 'N':	/* count */
 			xsi_offset = 0;
 			maxbytes = strtoul(optarg, NULL, 0);
 			break;
@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
 			addoutput("d2");
 			break;
 
-		case 't':
+		case 't':	/* type_string */
 			xsi_offset = 0;
 			if (addoutput(optarg) != 0) {
 				return 1;
